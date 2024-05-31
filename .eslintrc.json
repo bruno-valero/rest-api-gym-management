@@ -1,0 +1,11 @@
+{
+  "extends":[
+    "eslint:recommended"
+  ],
+  "rules": {
+    "indent": ["error", 2],        // Definindo indentação de 2 espaços
+    "quotes": ["error", "single"], // Usando aspas simples para strings
+    "semi": ["error", "always"]    // Sempre exigindo ponto e vírgula no final das instruções
+    // Outras regras de estilo aqui...
+  }
+}
