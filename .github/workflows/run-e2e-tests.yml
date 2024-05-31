@@ -4,8 +4,8 @@ on: [pull_requests]
 
 jobs:
   run-e2e-tests:
-  name: Run E2E Tests
-  runs-on: ubuntu-latest
+    name: Run E2E Tests
+    runs-on: ubuntu-latest
 
   services:
     postgres:
@@ -18,16 +18,20 @@ jobs:
         POSTGRESQL_DATABASE: apisolid
 
   steps:
-    - uses: actions/checkout@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v3
 
-    - uses: actions/setup-node@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: "18"
         cache: "npm"
 
-    - run: npm ci
+    - name: Install Dependencies
+      run: npm ci
 
-    - run: npm run test:e2e
-    env:
-      - JWT_SECRET: secret-for-testing
-      - DATABASE_URL_NEW: "postgresql://docker:docker@localhost:5432/apisolid?schema=public"
+    - name: Run E2E Tests
+      run: npm run test:e2e
+      env:
+        JWT_SECRET: secret-for-testing
+        DATABASE_URL_NEW: "postgresql://docker:docker@localhost:5432/apisolid?schema=public"
