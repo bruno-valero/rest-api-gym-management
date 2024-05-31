@@ -30,3 +30,8 @@ App estilo GymPass.
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
 - [x] Todas as listas de dados devem estar paginadas com 20 itens por página;
 - [x] O usuário deve ser identificado por um JWT (JSON Web Token);
+
+## CI (Continuous Integration)
+
+- [x] Devem fazer os testes unitários automaticamente através das GitHub Actions;
+- [x] Devem fazer os testes End to End automaticamente através das GitHub Actions;
